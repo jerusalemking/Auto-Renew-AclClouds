@@ -1092,6 +1092,7 @@ def main():
     with SB(**sb_options) as sb:   # 本地调试 headless=False，CI 改为 True
         try:
             ip = get_current_ip(PROXY_SERVER if IS_PROXY else "")
+            ip = ip.split(".")[0] + ".***.***.***"
             print(f"📍 当前出口IP: {ip}")
         except Exception as e:
             print(f"获取出口IP失败: {e}")
